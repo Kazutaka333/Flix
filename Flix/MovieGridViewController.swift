@@ -1,22 +1,27 @@
 //
-//  ViewController.swift
+//  MovieGridViewController.swift
 //  Flix
 //
-//  Created by Kazutaka Homma on 2/18/19.
+//  Created by Kazutaka Homma on 2/19/19.
 //  Copyright © 2019 Kazutaka Homma. All rights reserved.
 //
 
 import UIKit
-import AlamofireImage
 
-class ViewController: UIViewController {
+class MovieGridViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
-    var movies: [[String: Any]] = []
+    @IBOutlet weak var collectionView: UICollectionView!
+    var movies : [[String : Any]] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         downloadData()
+        
+        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.minimumLineSpacing = 4
+        layout.minimumInteritemSpacing = 4
+        
+        let width = (view.frame.width - layout.minimumLineSpacing*2)/3
+        layout.itemSize = CGSize(width: width, height: width*1.5)
     }
     
     func downloadData() {
@@ -36,45 +41,25 @@ class ViewController: UIViewController {
                 self.movies = movies
                 
                 // TODO: Reload your table view data
-                self.tableView.reloadData()
+                self.collectionView.reloadData()
             }
         }
         task.resume()
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let cell = sender as! UITableViewCell
-        let indexPath = tableView.indexPath(for: cell)!
-        let movie = movies[indexPath.row]
-        
-        let vc = segue.destination as! DetailsViewController
-        vc.movie = movie
-        
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
 }
 
-
-
-extension ViewController : UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension MovieGridViewController : UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return movies.count
     }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieGridCell", for: indexPath) as! MovieGridCell
         let baseUrl = "https://image.tmdb.org/t/p/w185"
         let movie = movies[indexPath.row]
         let imgPath = movie["poster_path"] as! String
         let imgUrl = URL(string: baseUrl + imgPath)!
-        let title = movie["title"] as! String
-        let description = movie["overview"] as! String
-        cell.posterImageView.af_setImage(withURL: imgUrl)
-        cell.titleLabel.text = title
-        cell.descriptionLabel.text = description
+        cell.posterView.af_setImage(withURL: imgUrl)
         return cell
     }
-    
-    
 }
-
