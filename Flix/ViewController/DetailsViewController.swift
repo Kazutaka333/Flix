@@ -31,12 +31,18 @@ class DetailsViewController: UIViewController {
         let backdropUrl = URL(string: baseUrl780 + backdropPath)!
         let imgUrl = URL(string: baseUrl + imgPath)!
         
-        titleLabel.text = movie["title"] as! String
+        titleLabel.text = movie["title"] as? String
         titleLabel.sizeToFit()
-        synopsisLabel.text = movie["overview"] as! String
+        synopsisLabel.text = movie["overview"] as? String
         synopsisLabel.sizeToFit()
         backdropView.af_setImage(withURL: backdropUrl)
         posterView.af_setImage(withURL: imgUrl)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let navController = segue.destination as! UINavigationController
+        let vc = navController.topViewController as! TrailerViewController
+        vc.movie = movie
     }
     
 }
