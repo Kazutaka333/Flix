@@ -43,10 +43,9 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Eo-6R-qeC">
-                                                    <rect key="frame" x="148" y="39.5" width="203" height="203"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hell, My name is bra a asdfljaps  aksdjfoa;df o ;ajs foia jasdj fo ajsdfoa jaksdjfoi ajoa doifjaoidf " lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Eo-6R-qeC">
+                                                    <rect key="frame" x="148" y="39.5" width="210.5" height="81.5"/>
                                                     <color key="backgroundColor" red="0.88830125331878662" green="0.65134167671203613" blue="0.92406332492828369" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <string key="text">label label label label label label label label label label label label label label label label label label label label label label label label label label label label label label label label label label label label label label label label label label label label label label label label label label </string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -54,7 +53,6 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="DFH-1P-r8T" firstAttribute="leading" secondItem="Yfy-wd-NNg" secondAttribute="leadingMargin" id="1tG-TJ-0yG"/>
-                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="0Eo-6R-qeC" secondAttribute="trailing" id="2C2-8O-hOU"/>
                                                 <constraint firstItem="DFH-1P-r8T" firstAttribute="top" secondItem="Yfy-wd-NNg" secondAttribute="topMargin" id="8OL-IY-mzU"/>
                                                 <constraint firstItem="nle-YA-A6R" firstAttribute="top" secondItem="Yfy-wd-NNg" secondAttribute="topMargin" id="8RC-T6-9Jc"/>
                                                 <constraint firstItem="nle-YA-A6R" firstAttribute="leading" secondItem="DFH-1P-r8T" secondAttribute="trailing" constant="8" id="AlZ-hy-UFG"/>
@@ -62,6 +60,7 @@
                                                 <constraint firstItem="0Eo-6R-qeC" firstAttribute="top" secondItem="nle-YA-A6R" secondAttribute="bottom" constant="8" id="M5d-Ku-LSE"/>
                                                 <constraint firstItem="0Eo-6R-qeC" firstAttribute="leading" secondItem="DFH-1P-r8T" secondAttribute="trailing" constant="8" id="Rg0-AM-PZ3"/>
                                                 <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="DFH-1P-r8T" secondAttribute="bottom" constant="8" id="Xtn-6C-Eoe"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="0Eo-6R-qeC" secondAttribute="trailing" id="ZrN-Qk-Y1Y"/>
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="nle-YA-A6R" secondAttribute="trailing" constant="8" id="rbI-sO-fOr"/>
                                             </constraints>
                                         </tableViewCellContentView>

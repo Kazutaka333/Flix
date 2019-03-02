@@ -15,12 +15,18 @@ class MovieGridViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         downloadData()
-        
+        setItemSize(viewSize: view.frame.size)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        setItemSize(viewSize: size)
+    }
+    
+    func setItemSize(viewSize: CGSize) {
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.minimumLineSpacing = 4
         layout.minimumInteritemSpacing = 4
-        
-        let width = (view.frame.width - layout.minimumLineSpacing*2)/3
+        let width = (viewSize.width - layout.minimumLineSpacing*2)/3
         layout.itemSize = CGSize(width: width, height: width*1.5)
     }
     
