@@ -15,11 +15,13 @@ class MovieGridViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         downloadData()
-        setItemSize(viewSize: view.frame.size)
+        setItemSize(viewSize: view.safeAreaLayoutGuide.layoutFrame.size)
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        setItemSize(viewSize: size)
+        coordinator.animate(alongsideTransition: { (context) in
+            self.setItemSize(viewSize: self.view.safeAreaLayoutGuide.layoutFrame.size)
+        })
     }
     
     func setItemSize(viewSize: CGSize) {
