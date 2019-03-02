@@ -39,6 +39,7 @@ class ViewController: UIViewController {
                 
                 // TODO: Reload your table view data
                 self.tableView.reloadData()
+                self.tableView.layoutIfNeeded()
             }
         }
         task.resume()
@@ -74,6 +75,8 @@ extension ViewController : UITableViewDataSource {
         cell.posterImageView.af_setImage(withURL: imgUrl)
         cell.titleLabel.text = title
         cell.descriptionLabel.text = description
+        cell.layoutSubviews()
+        
         return cell
     }
     
